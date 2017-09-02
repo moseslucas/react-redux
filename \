@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import swal from 'sweetalert2';
 import {connect} from 'react-redux';
-import * as courseActions from '../../actions/courseAction';
+import createCourse from '../../actions/courseAction';
 
 class CoursesPage extends React.Component{
   constructor(props, context){ 
@@ -15,7 +15,7 @@ class CoursesPage extends React.Component{
   
 
   onClickSave(){ 
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    swal(this.state.course.title);
   }
 
   onTitleChange(e){ 
@@ -23,7 +23,6 @@ class CoursesPage extends React.Component{
     course.title = e.target.value;
     this.setState({course: course});
   }
-
 
   render(){
     return(
@@ -38,9 +37,6 @@ class CoursesPage extends React.Component{
           type="submit"
           onClick={this.onClickSave}
           value="save" />
-        {this.props.courses.map((course, i)=>{ 
-          return <div key={i}> {course.title} </div>
-        })}
       </div>
     );
   }
@@ -50,6 +46,10 @@ function mapStateToProps(state, ownProps){
   return {courses: state.courses };
 }
 
+function mapDispatchToProps(){ 
+}
+
 export default connect(mapStateToProps)(CoursesPage);
+
 
 
