@@ -7,9 +7,13 @@ export default function subjectReducer(state=[], action){
       break;
 
     case 'REMOVE_SUBJECT':
-      debugger;
       return state.filter((val) => val.name!=action.name);
       break;
+
+    case 'SELECT_SUBJECT':
+      return state.filter((val)=>val.name == action.name);
+      break;
+
 
     default:
       return state;

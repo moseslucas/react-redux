@@ -5,3 +5,7 @@ export function createSubject(subject){
 export function removeSubject(name){ 
   return {type: 'REMOVE_SUBJECT', name};
 }
+
+export function selectSubject(name){ 
+  return {type: 'SELECT_SUBJECT', name};
+}

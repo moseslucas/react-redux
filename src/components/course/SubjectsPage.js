@@ -7,6 +7,7 @@ class SubjectsPage extends React.Component{
 
   constructor(props){ 
     super(props);
+    this.handleSelect = this.handleSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.state = { 
@@ -16,6 +17,10 @@ class SubjectsPage extends React.Component{
     }
   }
   
+  handleSelect(name){ 
+    this.props.actions.selectSubject(name);
+  }
+
   handleChange(e){ 
     this.setState({ 
       subject:{ 
@@ -66,6 +71,13 @@ class SubjectsPage extends React.Component{
                       <tr key={i}>
                         <td>{i+1}</td>
                         <td>{subject.name}</td>
+                        <td>
+                          <button
+                            className="btn btn-warning" 
+                            onClick={()=>{this.handleSelect(subject.name)}}>
+                            View
+                          </button>
+                        </td>
                         <td>
                           <button
                             className="btn btn-danger" 
