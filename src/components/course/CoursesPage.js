@@ -50,6 +50,9 @@ function mapStateToProps(state, ownProps){
   return {courses: state.courses };
 }
 
+function mapDispatchToProps(){ 
+}
+
 export default connect(mapStateToProps)(CoursesPage);
 
 
