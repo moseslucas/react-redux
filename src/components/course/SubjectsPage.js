@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import swal from 'sweetalert2';
 import {connect} from 'react-redux';
 import * as subjectActions from '../../actions/subjectAction';
+import {bindActionCreators} from 'redux';
 class SubjectsPage extends React.Component{ 
 
   constructor(props){ 
@@ -25,12 +26,12 @@ class SubjectsPage extends React.Component{
 
   handleSave(){ 
     if(!!this.state.subject.name){ 
-      this.props.createSubject(this.state.subject);
+      this.props.actions.createSubject(this.state.subject);
     }
   }
 
-  handleRemove(index){ 
-    this.props.dispatch(subjectActions.removeSubject(index));
+  handleRemove(name){ 
+    this.props.actions.removeSubject(name);
   }
 
   render(){ 
@@ -68,7 +69,7 @@ class SubjectsPage extends React.Component{
                         <td>
                           <button
                             className="btn btn-danger" 
-                            onClick={()=>{this.handleRemove(i)}}>
+                            onClick={()=>{this.handleRemove(subject.name)}}>
                             Remove
                           </button>
                         </td>
@@ -90,7 +91,7 @@ class SubjectsPage extends React.Component{
 
 SubjectsPage.propTypes = { 
   subjects: PropTypes.array.isRequired,
-  createSubject: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 }
 
 
@@ -100,7 +101,7 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){ 
   return{ 
-    createSubject: subject => dispatch(subjectActions.createSubject(subject))
+    actions: bindActionCreators(subjectActions,dispatch)
   }
 }
 

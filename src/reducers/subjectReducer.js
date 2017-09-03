@@ -4,9 +4,12 @@ export default function subjectReducer(state=[], action){
 
     case 'CREATE_SUBJECT':
       return [...state, Object.assign({}, action.subject)];
+      break;
 
     case 'REMOVE_SUBJECT':
-      return state;
+      debugger;
+      return state.filter((val) => val.name!=action.name);
+      break;
 
     default:
       return state;

@@ -49,7 +49,7 @@ class CoursesPage extends React.Component{
 
 CoursesPage.propTypes = { 
   courses: PropTypes.array.isRequired,
-  createCourse: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 }
 
 

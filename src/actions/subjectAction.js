@@ -2,6 +2,6 @@ export function createSubject(subject){
   return {type: 'CREATE_SUBJECT', subject};
 }
 
-export function removeSubject(index){ 
-  return {type: 'REMOVE_SUBJECT', index};
+export function removeSubject(name){ 
+  return {type: 'REMOVE_SUBJECT', name};
 }
