@@ -90,7 +90,7 @@ class SubjectsPage extends React.Component{
 
 SubjectsPage.propTypes = { 
   subjects: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired
+  createSubject: PropTypes.func.isRequired
 }
 
 
