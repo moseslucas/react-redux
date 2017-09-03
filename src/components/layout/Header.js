@@ -8,6 +8,7 @@ const Header = (props)=> {
         <li><IndexLink to="/" activeClassName="active">Home </IndexLink></li>
         <li><Link to="/about" activeClassName="active">About </Link></li>
         <li><Link to="/courses" activeClassName="active">Courses </Link></li>
+        <li><Link to="/subjects" activeClassName="active">Subjects </Link></li>
       </ul>
     </nav>
   );

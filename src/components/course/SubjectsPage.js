@@ -1,9 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import swal from 'sweetalert2';
 import {connect} from 'react-redux';
 import * as subjectActions from '../../actions/subjectAction';
-
-
 class SubjectsPage extends React.Component{ 
 
   constructor(props){ 
@@ -27,9 +25,7 @@ class SubjectsPage extends React.Component{
 
   handleSave(){ 
     if(!!this.state.subject.name){ 
-      this.props.dispatch(subjectActions.createSubject( 
-        this.state.subject
-      ));
+      this.props.createSubject(this.state.subject);
     }
   }
 
@@ -92,8 +88,20 @@ class SubjectsPage extends React.Component{
 }
 
 
+SubjectsPage.propTypes = { 
+  subjects: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired
+}
+
+
 function mapStateToProps(state, ownProps){ 
   return {subjects: state.subjects};
 }
 
-export default connect(mapStateToProps)(SubjectsPage);
+function mapDispatchToProps(dispatch){ 
+  return{ 
+    createSubject: subject => dispatch(subjectActions.createSubject(subject))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SubjectsPage);
