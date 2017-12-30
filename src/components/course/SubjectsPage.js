@@ -30,7 +30,7 @@ class SubjectsPage extends React.Component{
   }
 
   handleSave(){ 
-    if(!!this.state.subject.name){ 
+    if(this.state.subject.name){ 
       this.props.actions.createSubject(this.state.subject);
     }
   }
