@@ -1,8 +1,6 @@
 {
   "name": "react-redux",
   "version": "1.0.0",
-  "description": "Starter kit for React and Redux Pluralsight course by Cory House",
-  "author": "Cory House",
   "license": "MIT",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
@@ -68,6 +66,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "url": "https://github.com/moseslucas/react-redux"
   }
 }
